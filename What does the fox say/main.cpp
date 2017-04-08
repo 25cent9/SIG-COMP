@@ -18,29 +18,5 @@ int main()
     getline(cin, words);
     cout<<i<<endl;
     cout<<words<<endl;
-    for(int j =0; j< words.length(); j++)
-    {
-      if(input[j] !=' ')
-        sound+=words[j];
-      else
-      {
-        sounds[numSounds++]=sound;
-        sound="";
-      }
-    }
-    sounds[numSounds++]=sound;
-    while(getline(cin, input))
-    {
-      //cout<<input<<endl;
-      if(input.find(" goes ") != -1)
-      {
-        cout<<"goes"<<endl;
-      }
-      else
-      {
-        break;
-      }
-      cout<<input<<endl;
-    }
   }
 }

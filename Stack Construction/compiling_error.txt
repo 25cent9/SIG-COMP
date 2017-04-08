@@ -1,0 +1,10 @@
+/Users/25cen/Desktop/SIG COMP/Stack Construction/main.cpp:22:9: error: no matching member function for call to 'getline'
+    cin.getline(msg, 200);
+    ~~~~^~~~~~~
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/istream:245:20: note: candidate function not viable: no known conversion from 'string' (aka 'basic_string<char, char_traits<char>, allocator<char> >') to 'char_type *' (aka 'char *') for 1st argument
+    basic_istream& getline(char_type* __s, streamsize __n);
+                   ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/istream:246:20: note: candidate function not viable: requires 3 arguments, but 2 were provided
+    basic_istream& getline(char_type* __s, streamsize __n, char_type __dlm);
+                   ^
+1 error generated.
