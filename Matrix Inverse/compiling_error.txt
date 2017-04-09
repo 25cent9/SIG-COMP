@@ -1,0 +1,4 @@
+C:\Users\Innocent\Documents\GitHub\SIG-COMP\Matrix Inverse\main.cpp: In function 'int main()':
+C:\Users\Innocent\Documents\GitHub\SIG-COMP\Matrix Inverse\main.cpp:41:44: error: 'atoi' was not declared in this scope
+           matrix[0][0] = atoi(blank.c_str());
+                                            ^
