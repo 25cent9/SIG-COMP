@@ -10,31 +10,29 @@ using namespace std;
 
 int main()
 {
-  int number = 0, newNum =0;
+  int number = 0, newNum =0, squareNum;
   long long sum, diff;
   while(cin>>number)
   {
-    sum=0;
-    for(unsigned int i = 1; i<number; i++)
+    sum=1;
+    squareNum = (int) sqrt(number)+1;
+    for(unsigned int i = 1; i<squareNum; i++)
     {
     	if(number%i==0)
     	{
-      	sum+=i;
+      	if(number/i != number)
+      	{
+      	  sum+=(number/i)+i;
+      	}
     	}
     }
     diff = abs(sum-number);
     if(diff==0)
-    {
   	   cout<<number<<" perfect"<<endl;
-    }
     else if(diff<=2)
-    {
   	   cout<<number<<" almost perfect"<<endl;
-    }
     else
-    {
   	   cout<<number<<" not perfect"<<endl;
-    }
   }
   return 0;
 }
