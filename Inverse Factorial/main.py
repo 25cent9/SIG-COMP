@@ -5,6 +5,5 @@ factorial = int(input())
 num = 0
 while factorial != 1 and factorial >= 0:
   num += 1
-  factorial = factorial // num
-  #print(str(factorial)+" "+str(num))
+  factorial /= num
 print(num)
