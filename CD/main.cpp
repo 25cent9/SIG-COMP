@@ -1,41 +1,35 @@
-/*
-  Innocent Niyibizi
-  4-15-17
-  Kattis: 'CD'
-*/
-
 #include <iostream>
+#include <unordered_set>
 
 using namespace std;
 
 int main()
 {
-  string jack = "", jill="", curr;
-  int jackNum, jillNum, same;
-  cin>>jackNum>>jillNum;
-  while(jackNum != 0 && jillNum != 0)
+  unordered_set<int> cds;
+  unsigned int JackNUM, JillNUM, CD, total, size;
+  cin>>JackNUM>>JillNUM;
+  while(JackNUM!=0 || JillNUM!=0)
   {
-    for(int i =0; i<jackNum; i++)
+    cds.clear();
+    total = JackNUM+JillNUM;
+    for(int i =0; i<JackNUM; i++)
     {
-      cin>>curr;
-      jack+=curr+'.';
+      cin>>CD;
+      cds.insert(CD);
     }
-    for(int i =0; i<jillNum; i++)
+    for(int i = 0; i<JillNUM; i++)
     {
-      cin>>curr;
-      jill+=curr+'.';
+      cin>>CD;
+      cds.insert(CD);
     }
-    if(jackNum > jillNum || jackNum == jillNum)
+    if(JackNUM==0 || JillNUM ==0)
+      cout<<'0'<<endl;
+    else
     {
-      cout<<jack<<endl;
-      for(unsigned int i =0; i<jack.length(); i++)
-      {
-        cout<<i<<endl;
-        string subStr = jack.substr(i, jack.find('.')+1);
-        cout<<subStr<<endl;
-        i+=subStr.length()+1;
-      }
+      size = cds.size();
+      cout<<total-size<<endl;
     }
+    cin>>JackNUM>>JillNUM;
   }
   return 0;
 }
