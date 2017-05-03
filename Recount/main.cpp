@@ -2,38 +2,45 @@
   Innocent Niyibizi
   4-9-17
   Kattis: 'Recount'
+  delte histoy
 */
 
-#include<iostream>
-#include<set>
-#include<string>
+#include <iostream>
+#include <string>
 #include <algorithm>
-#include <vector>
+#include <map>
 
 using namespace std;
 
 int main()
 {
-  string votes[100000];
+  map<string,int> votes;
   string name = " ", topName="";
-  set<string> names;
   int voteCount = 0, topVote=0, validVotes;
   bool runOff = false;
+  map<string, int>::iterator it;
   while(name!="***")
   {
     getline(cin, name);
     if(name=="***")
       break;
-    votes[voteCount++] = name;
-    names.insert(name);
+    else if(votes.find(name)!=votes.end())
+    {
+      it=votes.find(name);
+      it->second++;
+    }
+    else
+    {
+      votes.insert(make_pair(name,1));
+    }
   }
-  for(set<string>::iterator it=names.begin(); it!=names.end(); ++it)
+  for(map<string, int>::iterator it=votes.begin(); it!=votes.end(); ++it)
   {
-    validVotes = count(votes, votes+voteCount, *it);
+    validVotes = it->second;
     if(validVotes>topVote)
     {
       topVote = validVotes;
-      topName = *it;
+      topName = it->first;
       runOff = false;
     }
     else if(validVotes==topVote)
