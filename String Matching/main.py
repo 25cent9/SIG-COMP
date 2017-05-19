@@ -2,22 +2,18 @@
 #   4-6-17
 #   Kattis: 'String Matching'
 
-import re, sys
+import re
 
 def findThem(sub, sentence):
   locations = []
-  for f in re.finditer(sub[0:len(sub)-1], sentence[0:len(sentence)-1]):
+  for f in re.finditer(sub, sentence):
     locations+=str(f.start())
-  print ' '.join(str(x) for x in locations)
+  print(*locations, sep=' ')
 
-words = []
-try:
-  for line in sys.stdin:
-    words.append(line)
-    if(len(words)==2):
-      findThem(str(words[0]), str(words[1]))
-      del words[:]
-except:
+while True:
+  try:
     substr = str(input())
-    sent = str(input())
-    findThem(substr, sent)
+    phrase = str(input())
+    findThem(substr, phrase)
+  except EOFError:
+    break
